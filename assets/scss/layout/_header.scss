@@ -1,9 +1,11 @@
 .header-banner {
   position: relative;
   display: flex;
+  margin-bottom: $layout-size_small;
   padding-top: $height_navbar;
   padding-bottom: $layout-size_base;
   background-image: url('../images/Interstellar.jpg');
+
 
   &::before {
     background-image: linear-gradient(to bottom right, $gradient-color_background);
@@ -19,6 +21,11 @@
 
     @extend %flex-row-between;
     @extend %layout_container;
+
+    @include phone-width() {
+      flex-direction: column;
+      padding: $layout-size_small;
+    }
 
     &::before {
       z-index: -1;
@@ -39,6 +46,7 @@
 
   &__title {
     margin-bottom: 1rem;
+    letter-spacing: 5px;
     font-weight: 600;
     font-size: 2.5rem;
   }
@@ -54,5 +62,9 @@
 
   &__illustration {
     flex: 1;
+
+    @include phone-width() {
+      width: 100%;
+    }
   }
 }

@@ -1,0 +1,26 @@
+.line-btn {
+  position: relative;
+  padding: 6px 1px;
+
+  @extend %flex-center;
+
+  &::before {
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background-color: $color_white;
+    transition: width 400ms;
+
+    @extend %pseudo-element;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  .material-icons {
+    margin-right: 5px;
+    font-size: 20px;
+  }
+}

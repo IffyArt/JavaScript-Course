@@ -1,0 +1,17 @@
+.border-btn {
+  padding: 10px 20px;
+  border: 1px solid $color_white;
+  border-radius: $border-radius_btn;
+  transition: color 300ms, background-color 300ms;
+
+  @extend %flex-row-center;
+
+  .material-icons {
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background-color: $color_white;
+    color: $color_accent;
+  }
+}

@@ -1,6 +1,18 @@
 .section {
+  padding: $layout-size_small 0;
 
   &__container {
     @extend %layout_container;
+  }
+
+  &__title {
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-size: 3rem;
+
+    &--center {
+      text-align: center;
+      margin-bottom: $layout-size_small;
+    }
   }
 }

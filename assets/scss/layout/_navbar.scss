@@ -7,15 +7,35 @@
   &__container {
     height: $height_navbar;
 
-    @extend %flex-row-center;
+    @extend %flex-row-between;
     @extend %layout_container;
   }
 
   &__title {
     color: $color_white;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
+    font-weight: 600;
     font-size: 1.1rem;
     font-family: 'Cairo', sans-serif;
+  }
+
+  &__link {
+    letter-spacing: 2px;
+    font-weight: 400;
+
+    @extend %flex-row-center;
+
+    @include phone-width() {
+      display: none;
+    }
+
+    li {
+      margin-left: 1.5rem;
+    }
+
+    a {
+      color: $color_white;
+    }
   }
 }
