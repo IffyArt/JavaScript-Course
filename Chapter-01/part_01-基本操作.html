@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>part_01-基本操作</title>
+	<style>
+		body {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			height: 100vh;
+			background-color: black;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 id="websiteTitle">我是這個網站的標題</h1>
+</body>
+<script>
+	// 在網頁中直接寫入
+	document.write('標題：')
+
+	// 在網頁中觸發彈出視窗
+	// alert('我是被觸發的彈出視窗')
+
+	// 在網站開發工具內被顯示
+	console.log('Hello Console');
+
+	// 變數設計有著var let const，後面兩者為ES6語法，不同的點有一個是let 與 const 不會進入所謂的Object Env，也就是無法在Window 物件內找到
+	// 全域物件 - Object Env
+	// 宣告環境 - Declare Env
+
+	const courseTitle = "深入淺出 JavaScript" //我是常數，是不能被改動的事物
+	document.write(courseTitle)
+	let name = "iffy" //我是變數 作用於 區塊作用域內({})
+	var newTime = Date() //我是變數 作用於函式內(Function)
+
+	for (var i = 1; i <= 10; i++) {
+		var result = 0
+		result = result + i
+	}
+
+	console.log(i);//將 i 改為 let 程式將會報錯
+	console.log(newTime + '-' + name);
+
+
+	function add(a, b) {
+		return a + b
+	}
+
+	function sub(a, b) {
+		return a - b
+	}
+
+	console.log('%c Add Function', 'color:orange');
+	console.log(add(1, 2));
+
+	console.log('%c Sub Function', 'color:orange');
+	console.log(sub(4, 2));
+
+	function method(a, b) {
+		a = a * 2
+		var c = add(a, b) + sub(a, b)
+		console.log('%c Method Function', 'color:orange;font-weight:bold');
+		console.log(c);
+	}
+
+	method(3, 8)
+
+	// BMI 計算 BMI值計算公式:    BMI = 體重(公斤) / 身高*身高(公尺)
+
+	var BMI = {};
+
+	BMI.getBMI = function (weight, height) {
+		var bmi = weight / ((height / 100) * (height / 100));
+		return bmi;
+	};
+
+	// 可將函式寫入其餘物件內
+
+	console.log(BMI.getBMI(87, 175));
+
+
+</script>
+
+</html>

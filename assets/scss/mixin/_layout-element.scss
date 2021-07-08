@@ -1,0 +1,33 @@
+%layout_container {
+  margin: auto;
+  max-width: $max-width_container;
+  width: $width_container;
+
+  @include phone-width() {
+    width: $width_container--big;
+  }
+}
+
+%layout_list {
+  overflow: hidden;
+  margin: -$row-size_col-margin;
+
+  @extend %flex-wrap;
+
+  li {
+    flex: 1;
+    margin: $row-size_col-margin;
+    min-width: 240px;
+  }
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
+@mixin round($size) {
+  width: $size;
+  height: $size;
+  border-radius: $size;
+}

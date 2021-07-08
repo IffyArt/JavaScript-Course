@@ -1,0 +1,6 @@
+.section {
+
+  &__container {
+    @extend %layout_container;
+  }
+}

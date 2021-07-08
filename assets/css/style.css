@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font: inherit;
+  font-size: 100%;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+.header-banner__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header-banner::before, .header-banner__container::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+}
+
+.navbar__container, .header-banner__container, .section__container {
+  margin: auto;
+  max-width: 1300px;
+  width: 80%;
+}
+
+@media all and (max-width: 556px) {
+  .navbar__container, .header-banner__container, .section__container {
+    width: 85%;
+  }
+}
+
+.navbar {
+  position: absolute;
+  z-index: 100;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.navbar__container {
+  height: 80px;
+}
+
+.navbar__title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+  font-family: 'Cairo', sans-serif;
+}
+
+.header-banner {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  background-image: url("../images/Interstellar.jpg");
+}
+
+.header-banner::before {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#4158D0), color-stop(#C850C0), to(#FFCC70));
+  background-image: linear-gradient(to bottom right, #4158D0, #C850C0, #FFCC70);
+  opacity: 0.9;
+}
+
+.header-banner__container {
+  position: relative;
+  z-index: 0;
+  padding: 30px 60px;
+}
+
+.header-banner__container::before {
+  z-index: -1;
+  border: 2px solid #FFFFFF;
+  border-radius: 20px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffffe7), to(#ffffff1e));
+  background-image: linear-gradient(to bottom, #ffffffe7, #ffffff1e);
+  opacity: 0.5;
+}
+
+.header-banner__info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.header-banner__title {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.header-banner__course-items {
+  padding-left: 30px;
+}
+
+.header-banner__course-items li {
+  margin-bottom: 0.5rem;
+  list-style-type: auto;
+}
+
+.header-banner__illustration {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body {
+  position: relative;
+  background-color: #eaebf4;
+  color: #3d327b;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-family: 'Noto Sans TC', sans-serif;
+  line-height: 1.35;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.text-bold {
+  font-weight: 500;
+}
+
+.text-height {
+  letter-spacing: 2px;
+  line-height: 1.5;
+}
+
+.margin-bottom {
+  margin-bottom: 30px;
+}
+
+.margin-bottom--big {
+  margin-bottom: 60px;
+}
+
+.margin-bottom--small {
+  margin-bottom: 15px;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+.margin-top--big {
+  margin-top: 60px;
+}
+
+.margin-top--small {
+  margin-top: 15px;
+}
+
+.absolute--left-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+/*# sourceMappingURL=style.css.map */

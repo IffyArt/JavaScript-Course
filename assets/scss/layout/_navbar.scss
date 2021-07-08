@@ -1,0 +1,21 @@
+.navbar {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+
+  &__container {
+    height: $height_navbar;
+
+    @extend %flex-row-center;
+    @extend %layout_container;
+  }
+
+  &__title {
+    color: $color_white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1.1rem;
+    font-family: 'Cairo', sans-serif;
+  }
+}

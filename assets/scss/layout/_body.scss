@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap');
+
+body {
+  position: relative;
+  background-color: $color_primary;
+  color: $color_text-color;
+  letter-spacing: 1px;
+  font-weight: 300;
+  font-family: 'Noto Sans TC', sans-serif;
+  line-height: 1.35;
+}
+
+.text-white {
+  color: $color_white;
+}
+
+.text-bold {
+  font-weight: 500;
+}
+
+.text-height {
+  letter-spacing: 2px;
+  line-height: 1.5;
+}
+
+.margin-bottom {
+  margin-bottom: $layout-size_small;
+
+  &--big {
+    margin-bottom: $layout-size_base;
+  }
+
+  &--small {
+    margin-bottom: $layout-size_small/2;
+  }
+}
+
+.margin-top {
+  margin-top: $layout-size_small;
+
+  &--big {
+    margin-top: $layout-size_base;
+  }
+
+  &--small {
+    margin-top: $layout-size_small/2;
+  }
+}
+
+.absolute--left-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}

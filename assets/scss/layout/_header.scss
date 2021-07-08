@@ -1,0 +1,58 @@
+.header-banner {
+  position: relative;
+  display: flex;
+  padding-top: $height_navbar;
+  padding-bottom: $layout-size_base;
+  background-image: url('../images/Interstellar.jpg');
+
+  &::before {
+    background-image: linear-gradient(to bottom right, $gradient-color_background);
+    opacity: 0.9;
+
+    @extend %pseudo-element--full;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 0;
+    padding: $layout-size_small $layout-size_base;
+
+    @extend %flex-row-between;
+    @extend %layout_container;
+
+    &::before {
+      z-index: -1;
+      border: 2px solid $color_white;
+      border-radius: $border-radius_layout;
+      background-image: linear-gradient(to bottom, $gradient-color_glassmorphism);
+      opacity: 0.5;
+
+      @extend %pseudo-element--full;
+    }
+  }
+
+  &__info {
+    flex: 1;
+    color: $color_white;
+    font-weight: 400;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+
+  &__course-items {
+    padding-left: $layout-size_small;
+
+    li {
+      margin-bottom: 0.5rem;
+      list-style-type: auto;
+    }
+  }
+
+  &__illustration {
+    flex: 1;
+  }
+}
