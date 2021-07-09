@@ -146,7 +146,7 @@ a {
   text-decoration: none;
 }
 
-.part-items li a, .line-btn {
+.line-btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -183,7 +183,20 @@ a {
           justify-content: space-between;
 }
 
-.part-items {
+.part-cards li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.part-cards {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,29 +217,29 @@ a {
   content: '';
 }
 
-.line-btn::before {
+.part-cards li a::before, .line-btn::before {
   position: absolute;
   content: '';
 }
 
-.navbar__container, .header-banner__container, .section__container {
+.navbar__container, .header-banner__container, .section__container, .footer__container {
   margin: auto;
   max-width: 1300px;
   width: 80%;
 }
 
 @media all and (max-width: 556px) {
-  .navbar__container, .header-banner__container, .section__container {
+  .navbar__container, .header-banner__container, .section__container, .footer__container {
     width: 85%;
   }
 }
 
-.part-items {
+.part-cards {
   overflow: hidden;
   margin: -10px;
 }
 
-.part-items li {
+.part-cards li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -421,8 +434,62 @@ body {
   margin-bottom: 30px;
 }
 
-.part-items li a {
+.footer {
+  margin-top: 30px;
+  padding: 30px 0;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#4158D0), color-stop(#C850C0), to(#FFCC70));
+  background-image: linear-gradient(to bottom right, #4158D0, #C850C0, #FFCC70);
+}
+
+.footer__container {
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.part-cards li {
+  font-weight: 400;
+}
+
+.part-cards li a {
+  position: relative;
+  z-index: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 60px 30px;
+  border: 1px solid #e4e4ea;
   border-radius: 20px;
+  background-color: #ffffff4d;
+  color: #64438e;
+  font-size: 1.5rem;
+  -webkit-transition: color 300ms;
+  transition: color 300ms;
+}
+
+.part-cards li a::before {
+  z-index: -1;
+  width: 0;
+  height: 0;
+  border-radius: 20px;
+  background-color: #64438e;
+  -webkit-transition: width 300ms, height 300ms;
+  transition: width 300ms, height 300ms;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+.part-cards li a:hover {
+  color: #FFFFFF;
+}
+
+.part-cards li a:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.part-cards .material-icons {
+  margin-bottom: 1rem;
+  font-size: 5rem;
 }
 
 .border-btn {

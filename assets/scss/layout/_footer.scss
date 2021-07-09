@@ -1,0 +1,12 @@
+.footer {
+  margin-top: $layout-size_small;
+  padding: $layout-size_small 0;
+  background-image: linear-gradient(to bottom right, $gradient-color_background);
+
+  &__container {
+    color: $color_white;
+    text-align: center;
+
+    @extend %layout_container;
+  }
+}

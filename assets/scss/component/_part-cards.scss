@@ -1,0 +1,48 @@
+.part-cards {
+  @extend %layout_list;
+
+  li {
+    font-weight: 400;
+
+    a {
+      position: relative;
+      z-index: 1;
+      justify-content: center;
+      padding: $layout-size_base $layout-size_small;
+      border: 1px solid $color_line;
+      border-radius: $border-radius_layout;
+      background-color: $color_glassmorphism;
+      color: $color_accent;
+      font-size: 1.5rem;
+      transition: color 300ms;
+
+      @extend %flex-column-center;
+
+      &::before {
+        z-index: -1;
+        width: 0;
+        height: 0;
+        border-radius: $border-radius_layout;
+        background-color: $color_accent;
+        transition: width 300ms, height 300ms;
+        transition-timing-function: ease-out;
+
+        @extend %pseudo-element;
+      }
+
+      &:hover {
+        color: $color_white;
+      }
+
+      &:hover::before {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .material-icons {
+    margin-bottom: 1rem;
+    font-size: 5rem;
+  }
+}
