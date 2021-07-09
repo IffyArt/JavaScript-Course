@@ -18,101 +18,105 @@
 			background-color: black;
 			color: white;
 		}
+
+		.tab-box {
+			display: flex;
+			flex-direction: column;
+			border: white solid 1px;
+		}
+
+		.tab-box__tabs {
+			background-color: white;
+		}
+
+		.tab-box__tab {
+			padding: 1rem;
+			border: none;
+			background-color: white;
+			cursor: pointer;
+		}
+
+		.tab-box__content {
+			padding: 20px;
+			margin: auto;
+		}
+
+		.tab-box__content li {
+			display: none;
+			animation: fadeEffect 300ms;
+		}
+
+		/* Go from zero to full opacity */
+		@keyframes fadeEffect {
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
+		}
 	</style>
 </head>
 
 <body>
-	<h1 id="websiteTitle">我是這個網站的標題</h1>
+	<h1 id="websiteTitle">標籤切換功能實作</h1>
+
+	<article class="tab-box">
+		<header class="tab-box__tabs">
+			<button class="tab-box__tab"
+							id="defaultOpen"
+							onclick="openCity(event, 'one')">one</button>
+			<button class="tab-box__tab"
+							onclick="openCity(event, 'two')">two</button>
+			<button class="tab-box__tab"
+							onclick="openCity(event, 'three')">three</button>
+		</header>
+
+		<ul class="tab-box__content">
+			<li id="one">
+				<h3>one</h3>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+				</p>
+			</li>
+			<li id="two">
+				<h3>two</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+			</li>
+			<li id="three">
+				<h3>three</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+			</li>
+		</ul>
+	</article>
+
 </body>
+
 <script>
-	// 在網頁中直接寫入
-	document.write('標題：')
+	var openCity = function (evt, cityName) {
+		// 先行定義全部的變數
+		var i, tabContent, tabLinks;
 
-	// 在網頁中觸發彈出視窗
-	// alert('我是被觸發的彈出視窗')
-
-	// 在網站開發工具內被顯示
-	console.log('Hello Console');
-
-	// 變數設計有著var let const，後面兩者為ES6語法，不同的點有一個是let 與 const 不會進入所謂的Object Env，也就是無法在Window 物件內找到
-	// 全域物件 - Object Env
-	// 宣告環境 - Declare Env
-
-	const courseTitle = "深入淺出 JavaScript" //我是常數，是不能被改動的事物
-	document.write(courseTitle)
-	let name = "iffy" //我是變數 作用於 區塊作用域內({})
-	var newTime = Date() //我是變數 作用於函式內(Function)
-
-	for (var i = 1; i <= 10; i++) {
-		var result = 0
-		result = result + i
-	}
-
-	console.log(i);//將 i 改為 let 程式將會報錯
-	console.log(newTime + '-' + name);
-
-
-	function add(a, b) {
-		return a + b
-	}
-
-	function sub(a, b) {
-		return a - b
-	}
-
-	console.log('%c Add Function', 'color:orange');
-	console.log(add(1, 2));
-
-	console.log('%c Sub Function', 'color:orange');
-	console.log(sub(4, 2));
-
-	function method(a, b) {
-		a = a * 2
-		var c = add(a, b) + sub(a, b)
-		console.log('%c Method Function', 'color:orange;font-weight:bold');
-		console.log(c);
-	}
-
-	method(3, 8)
-
-	var BMI = {};
-
-	BMI.getBMI = function (a, b) {
-		var bmi = b / ((a / 100) * (a / 100));
-		return bmi;
-	};
-
-	BMI.idealweight = function (a) {
-		var x = (a - 100) * 0.9;
-		return x;
-	};
-
-	function Cal(form) {
-		var a = eval(form.height.value);
-		var b = eval(form.weight.value);
-		var bmi = eval(form.BMI.value);
-		var bmiValue = BMI.getBMI(a, b);
-		BMI.disp_alert(bmiValue);
-		form.IW.value = BMI.idealweight(a);
-		form.BMI.value = bmiValue;
-	}
-	BMI.disp_alert = function (bmi) {
-		if (bmi < 18.5) {
-			alert("你的體重太輕,要多吃點喲!");
+		// 取得全部類別名稱為 tab-box__content 內的 li，並將其隱藏
+		tabContent = document.querySelectorAll(".tab-box__content li");
+		for (i = 0; i < tabContent.length; i++) {
+			tabContent[i].style.display = "none";
 		}
-		else if (bmi >= 18.5 && bmi < 25) {
-			alert("親,你的體重正常,要繼續保持喲!");
+
+		// 取得全部標籤按鈕並且將類別名稱 active 取代為空白，此處包括一格空白是為了清除乾淨 DOM Element 上的類別名稱
+		tabLinks = document.getElementsByClassName("tab-box__tab");
+		for (i = 0; i < tabLinks.length; i++) {
+			tabLinks[i].className = tabLinks[i].className.replace(" active", "");
 		}
-		else if (bmi >= 25 && bmi < 30) {
-			alert("親,您的體重過重,要減肥了!");
-		}
-		else {
-			alert("親,你確實要減肥了!");
-		}
+
+		// 將點選的名稱元素進行顯示，並且於點選的物件上新增 active 的類別名稱
+		document.getElementById(cityName).style.display = "block";
+		evt.currentTarget.className += " active";
 	}
 
-	console.log(BMI);
-
+	// 預設出發此名稱的點擊事件
+	document.getElementById("defaultOpen").click();
 
 </script>
 
