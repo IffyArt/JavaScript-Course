@@ -7,7 +7,7 @@
 				content="IE=edge">
 	<meta name="viewport"
 				content="width=device-width, initial-scale=1.0">
-	<title>Part_03-日期倒數</title>
+	<title>Part_06-日期倒數</title>
 	<style>
 		* {
 			margin: 0;
@@ -70,26 +70,25 @@
 
 	<script>
 		// 定義倒計時目標時間
+		var countDownDate = new Date("July 15, 2021 16:10:25").getTime();
 
-		var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();
-
-		// Update the count down every 1 second
+		// 新增每秒更新時間的函示
 		var x = setInterval(function () {
 
-			// Get today's date and time
+			// 取得今日的日期
 			var now = new Date().getTime();
 
-			// Find the distance between now and the count down date
+			// 找出現在和倒計時日期之間的時間
 			var distance = countDownDate - now;
 
-			// Time calculations for days, hours, minutes and seconds
+			//天、小時、分鐘和秒的時間計算
 			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
 			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-			// Display the result in the element with id="downDate"
-			document.getElementById("downDate").innerHTML = days + "d " + hours + "h "
+			// 在 id="downDate" 的元素中顯示結果
+			document.getElementById("downDate").innerHTML = days + "DAY " + hours + "h "
 				+ minutes + "m " + seconds + "s ";
 
 			// If the count down is finished, write some text

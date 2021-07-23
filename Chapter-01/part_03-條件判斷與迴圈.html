@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>Part_03-條件判斷與迴圈</title>
+</head>
+
+<body>
+	<h1>Part_03-條件判斷與迴圈</h1>
+</body>
+
+<script>
+
+	// <常用條件判斷式> 如果是否則(if ... else)
+	// if (condition) {
+
+	// } else { 可以不加 else 條件
+
+	// }
+
+	var number = 12
+
+	// if (number > 10) {
+	// 	console.log(true);
+	// }
+
+
+	// <常用條件判斷式> 依照條件判斷內容(switch ... case)
+	// switch (key) {
+	// 	case value:
+
+	// 		break; 沒有加 break 的話將會持續下方條件
+
+	// 	default:
+	// 		break;
+	// }
+
+	var week = 2;
+
+	// switch (week) {
+	// 	case 1:
+	// 		console.log('星期一');
+	// 		break;
+	// 	case 2:
+	// 		console.log('星期二');
+	// 		break;
+	// 	case 3:
+	// 		console.log('星期三');
+	// 		break;
+
+	// 	default:
+	// 		console.log('請輸入 1 - 3');
+	// 		break;
+	// }
+
+	// <常用條件判斷式> 條件滿足前執行(do ... while)
+	// do {
+
+	// } while (condition);
+
+	var i = 2;
+
+	// do {
+	// 	document.write(i)
+
+	// 	console.log(i);
+
+	// 	i++;
+	// } while (i <= 10);
+
+	// <常用條件判斷式> 符合條件前執行(while)
+	// while (condition) {
+
+	// }
+
+	// while (i <= 10) {
+	// 	document.write(i);
+	// 	document.write("<br/>");
+
+	// 	i++;
+	// }
+
+
+	// <差異解釋> (do ... while) 與 (while)
+	var whileNumber = 21
+	// var whileNumber = 20
+
+	// while (whileNumber >= 20) {
+	// 	console.log('條件達成即結束循環');
+	// 	whileNumber--
+	// }
+
+	// do {
+	// 	console.log('不管如何都先進行一次操作，之後才判斷是否完成條件')
+	// 	whileNumber--
+	// } while (whileNumber >= 20);
+
+
+	// <常用迴圈> for & forEach 固定次數的迴圈操作 為每個實體提供函式
+	// for (let index = 0; index < array.length; index++) {
+	// 	const element = array[index];
+	// }
+
+	var array = ['apple', 'banana', 'orange']
+
+	// for (let index = 0; index < array.length; index++) {
+	// 	const element = array[index];
+	// 	document.write(element);
+	// 	document.write("<br />");
+	// }
+
+	// array.forEach(element => {
+	// 	document.write(element);
+	// 	document.write("<br />");
+	// });
+
+	// <常用迴圈> Map 固定次數的迴圈操作 會建立一個新個陣列，並執行提供的操作
+
+	// array.map((element) => {
+	// 	document.write(element);
+	// 	document.write("<br />");
+	// })
+
+	// console.log(array);
+
+	// const array1 = [1, 4, 9, 16];
+
+	// const map1 = array1.map(x => x * 2);
+
+	// console.log(array1);
+	// console.log(map1);
+
+	// <差異解釋> For 類型的操作並不會回傳陣列實體
+
+	// const map2 = array1.forEach(x => x * 2);
+	// console.log(map2);
+
+	// <練習案例-01> 在網站上新增多個隨機變數
+
+	var str = '產出亂碼 - ';
+
+	// function getRandomInt(max) {
+	// 	return Math.floor(Math.random() * max);
+	// }
+
+	// for (var i = 1; i <= 10; i++) {
+	// 	if (i <= 9) {
+	// 		str = str + getRandomInt(100) + '、'
+	// 	} else {
+	// 		str = str + getRandomInt(100)
+	// 	}
+	// }
+
+	// document.write(str);
+
+	// <練習案例-02> 日薪為 1000 的員工，以每年增長 2% 的比例提高薪資，持續工作 30 年後的薪資
+
+	var salary = 2000;
+	// for (var i = 1; i <= 30; i++) {
+	// 	salary = salary * 1.02;
+	// }
+	// document.write(salary);
+
+	// <練習案例-03> 輸出 100 以內能被固定數字整除的數字
+
+	// for (let i = 0; i < 100; i++) {
+	// 	if (i % 7 == 0) {
+	// 		document.write(i);
+	// 		document.write("<br />");
+	// 	}
+	// }
+
+	var startNumber = 1;
+	// while (startNumber * 7 < 100) {
+	// 	document.write(i * 7);
+	// 	document.write("<br />");
+	// 	startNumber++;
+	// }
+
+	// for (var i = 1; i <= parseInt(100 / 7); i++) {
+	// 	console.log(i);// 會給出被 7 整除後餘數為零的數值
+	// 	document.write(i * 7);
+	// 	document.write("<br />");
+	// }
+
+	// <練習案例-04> 條件判斷與迴圈應用
+
+	// for (var i = 1; i <= 5; i++) {
+	// 	if (i == 3) {
+	// 		//可操作的條件
+	// 		break;
+	// 	}
+	// 	document.write(i);
+	// 	document.write("<br />");
+	// }
+
+	// document.write("break 會跳出 for");
+
+	arrayBlock = [{ name: '王大明', age: 23 }, { name: '王小明', age: 17 }, { name: '王鐘銘', age: 20 }]
+	// arrayBlock.forEach(element => {
+	// 	if (element.age >= 18) {
+	// 		console.log(element.name);
+	// 	}
+	// });
+
+	// <練習案例-05> 計算 100 - 300 之間能被 12 或者 17 整除的數值
+	// for (var i = 100; i <= 300; i++) {
+	// 	if (i % 12 == 0 || i % 17 == 0) { // 可將 || 改成 &&
+	// 		document.write(i);
+	// 		document.write("<br />");
+	// 	}
+	// }
+
+	// <練習案例-06> 顯示下列圖型
+	/*
+		*				第1行，1个*
+		**　				第2行，2个*
+		**				第3行，3个*
+		****				第4行，4个*
+		*****			第5行，5个*
+		******			第6行，6个*
+		...				第n行，n个*
+	*/
+
+	var rows = 20;
+	// for (var i = 1; i <= rows; i++) {		// i代表行數
+
+	// 	// 要求第幾行，輸出幾個'*''
+	// 	for (var col = 0; col < i; col++) {
+	// 		document.write("*");
+	// 	}
+
+	// 	document.write("<br />");
+	// }
+</script>
+
+</html>

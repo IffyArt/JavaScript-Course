@@ -20,12 +20,12 @@
 		<article class="navbar__container">
 			<h1 class="navbar__title">JavaScript Course</h1>
 			<ul class="navbar__link">
-				<li><a class="line-btn"
+				<!-- <li><a class="line-btn"
 						 href="course-outline.html">
 						<span class="material-icons">
 							assignment
 						</span>
-						課程綱要</a></li>
+						課程綱要</a></li> -->
 				<li><a class="border-btn"
 						 href="https://hackmd.io/PujW4VUzSsOwlMXizQd9Jw">
 						<span class="material-icons">
@@ -69,17 +69,38 @@
 						</a>
 					</li>
 					<li>
-						<a href="Chapter-01/part_02-網頁DOM操作.html">
+						<a href="Chapter-01/part_02-運算方式學習.html">
+							<span class="material-icons">
+								dialpad
+							</span>
+							02-運算方式學習</a>
+					</li>
+					<li>
+						<a href="Chapter-01/part_03-條件判斷與迴圈.html">
+							<span class="material-icons">
+								functions
+							</span>
+							03-條件判斷與迴圈</a>
+					</li>
+					<li>
+						<a href="Chapter-01/part_04-網頁DOM操作.html">
 							<span class="material-icons">
 								preview
 							</span>
-							02-網頁DOM操作</a>
+							04-網頁DOM操作</a>
 					</li>
 					<li>
-						<a href="Chapter-01/part_03-日期倒數.html">
+						<a href="Chapter-01/part_05-標籤切換實作.html">
+							<span class="material-icons">
+								preview
+							</span>
+							05-標籤切換實作</a>
+					</li>
+					<li>
+						<a href="Chapter-01/part_06-日期倒數.html">
 							<span class="material-icons">
 								date_range
-							</span>03-日期倒數</a>
+							</span>06-日期倒數</a>
 					</li>
 				</ul>
 			</article>
@@ -89,5 +110,32 @@
 		<article class="footer__container">深入淺出 JavaScript 課程</article>
 	</footer>
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+<script>
+	// Your web app's Firebase configuration
+	var firebaseConfig = {
+		apiKey: "AIzaSyBREE6W2AHA8Jr0wZlbZZWVzpr3-Lf7uWY",
+		authDomain: "my-test-8e291.firebaseapp.com",
+		databaseURL: "https://my-test-8e291-default-rtdb.asia-southeast1.firebasedatabase.app",
+		projectId: "my-test-8e291",
+		storageBucket: "my-test-8e291.appspot.com",
+		messagingSenderId: "801376833139",
+		appId: "1:801376833139:web:7ea867608041a754fde406"
+	};
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+
+	var db = firebase.firestore();
+
+	db.collection("users").get().then((querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+			console.log(doc.data());
+		});
+	});
+
+
+</script>
 
 </html>
