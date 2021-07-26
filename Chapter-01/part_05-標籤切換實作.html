@@ -66,11 +66,11 @@
 		<header class="tab-box__tabs">
 			<button class="tab-box__tab"
 							id="defaultOpen"
-							onclick="openCity(event, 'one')">one</button>
+							onclick="openTab(event, 'one')">one</button>
 			<button class="tab-box__tab"
-							onclick="openCity(event, 'two')">two</button>
+							onclick="openTab(event, 'two')">two</button>
 			<button class="tab-box__tab"
-							onclick="openCity(event, 'three')">three</button>
+							onclick="openTab(event, 'three')">three</button>
 		</header>
 
 		<ul class="tab-box__content">
@@ -94,7 +94,7 @@
 </body>
 
 <script>
-	var openCity = function (evt, cityName) {
+	var openTab = function (evt, tab) {
 		// 先行定義全部的變數
 		var i, tabContent, tabLinks;
 
@@ -111,7 +111,7 @@
 		}
 
 		// 將點選的名稱元素進行顯示，並且於點選的物件上新增 active 的類別名稱
-		document.getElementById(cityName).style.display = "block";
+		document.getElementById(tab).style.display = "block";
 		evt.currentTarget.className += " active";
 	}
 
