@@ -15,4 +15,10 @@
       margin-bottom: $layout-size_small;
     }
   }
+
+  &__sub {
+    letter-spacing: 3px;
+    font-weight: 500;
+    font-size: 2rem;
+  }
 }

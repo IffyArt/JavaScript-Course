@@ -13,109 +13,109 @@
 <body>
 
 	<h1>Part_03-條件判斷與迴圈</h1>
-	<script>
-		// 1、賦予變數資料使用 "=" ，同時因為 JavaScript 特性，將會自動轉為被賦予型態
-		var str = "hello";
-
-		// 2、算式運算符包括 +(加法) -(減法) *(乘法) /(除法) %(取餘數)
-		var number = 10
-		// console.log(number + 3);
-		// console.log(number - 3);
-		// console.log(number * 3);
-		// console.log(number / 3);
-		// console.log(number % 3);
-
-		// 3、對變數進行單獨加法操作
-		var i = 3;
-		// i = i + 1;
-		// i++;
-		// ++i;
-		// alert(i);
-
-		// 4、對變數進行單獨減法操作
-		var i = 3;
-		// i--;
-		// --i;
-		// alert(i);
-
-		// 5、將運算式放置於前後的差別，在於賦值的的順序問題
-		// console.log(i--);
-		// console.log(--i);
-
-		// <額外提示>先賦予 a=10,再執行加法操作 => b=16，最後才是a=11 ，此處可更改 ++ 前後改變結果
-		var a = 10;
-		var b = a++ + 6;
-		// console.log(a);
-		// console.log(b);
-
-
-		// 6、常用關系運算符簡略 (< <= > >= == != ===)
-		var num1 = 3;
-		var num2 = 4;
-		var str3 = '3';
-
-		// <範例說明>相對等於範例 ==
-		// if (num1 == num2) {
-		// 	console.log("相等");
-		// } else {
-		// 	console.log("不相等");;
-		// }
-
-		// <改良寫法>改為條件 (三元) 運算子
-		// num1 == num2 ? console.log("相等") : console.log("不相等")
-
-		// <改良寫法>設計包覆函式
-		var equal = function () {
-			console.log("相等")
-		}
-		var notEqual = function () {
-			console.log("不相等")
-		}
-
-		// num1 == str3 ? equal() : notEqual()
-
-		// <範例說明>絕對等於範例 === ，此處判斷將判別型別
-
-		// num1 === str3 ? equal() : notEqual()
-		// num1 === str3++ ? equal() : notEqual()
-		// num1 === --num2 ? equal() : notEqual()
-
-		// <範例說明>不等於 !=
-
-		// num1 != --num2 ? equal() : notEqual()
-
-		// 7、常用邏輯運算式 並且(&&) 或者(||) 相反(!)
-
-		var person = {
-			name: 'Alex',
-			age: '22',
-			sex: 'man',
-		}
-
-		// person.age > 30 && person.sex == 'man' ? equal() : notEqual()
-
-		// <範例說明>大於25 並且 小於三十
-		// person.age > 25 && person.age < 30 ? equal() : notEqual()
-		// <範例說明>大於25 或者 小於三十
-		// person.age > 25 || person.age < 30 ? equal() : notEqual()
-
-		// <範例說明> !將會反轉資料的布林值，同樣使用兩個將會再次反轉
-		// console.log(!true);
-		// console.log(!!true);
-		// console.log(!!person);
-
-
-
-		// <額外補充>藉由型別轉換實現簡易條件判斷
-		var shopCart = []
-		// console.log(shopCart.length);
-		// shopCart.length ? console.log('有內容') : console.log('無內容');
-
-		// shopCart.push('apple')
-		// console.log(shopCart.length);
-		// shopCart.length ? console.log('有內容') : console.log('無內容');
-
-	</script>
 </body>
+<script>
+	// 1、賦予變數資料使用 "=" ，同時因為 JavaScript 特性，將會自動轉為被賦予型態
+	var str = "hello";
+
+	// 2、算式運算符包括 +(加法) -(減法) *(乘法) /(除法) %(取餘數)
+	var number = 10
+	// console.log(number + 3);
+	// console.log(number - 3);
+	// console.log(number * 3);
+	// console.log(number / 3);
+	// console.log(number % 3);
+
+	// 3、對變數進行單獨加法操作
+	var i = 3;
+	// i = i + 1;
+	// i++;
+	// ++i;
+	// alert(i);
+
+	// 4、對變數進行單獨減法操作
+	var i = 3;
+	// i--;
+	// --i;
+	// alert(i);
+
+	// 5、將運算式放置於前後的差別，在於賦值的的順序問題
+	// console.log(i--);
+	// console.log(--i);
+
+	// <額外提示>先賦予 a=10,再執行加法操作 => b=16，最後才是a=11 ，此處可更改 ++ 前後改變結果
+	var a = 10;
+	var b = a++ + 6;
+	// console.log(a);
+	// console.log(b);
+
+
+	// 6、常用關系運算符簡略 (< <= > >= == != ===)
+	var num1 = 3;
+	var num2 = 4;
+	var str3 = '3';
+
+	// <範例說明>相對等於範例 ==
+	// if (num1 == num2) {
+	// 	console.log("相等");
+	// } else {
+	// 	console.log("不相等");;
+	// }
+
+	// <改良寫法>改為條件 (三元) 運算子
+	// num1 == num2 ? console.log("相等") : console.log("不相等")
+
+	// <改良寫法>設計包覆函式
+	var equal = function () {
+		console.log("相等")
+	}
+	var notEqual = function () {
+		console.log("不相等")
+	}
+
+	// num1 == str3 ? equal() : notEqual()
+
+	// <範例說明>絕對等於範例 === ，此處判斷將判別型別
+
+	// num1 === str3 ? equal() : notEqual()
+	// num1 === str3++ ? equal() : notEqual()
+	// num1 === --num2 ? equal() : notEqual()
+
+	// <範例說明>不等於 !=
+
+	// num1 != --num2 ? equal() : notEqual()
+
+	// 7、常用邏輯運算式 並且(&&) 或者(||) 相反(!)
+
+	var person = {
+		name: 'Alex',
+		age: '22',
+		sex: 'man',
+	}
+
+	// person.age > 30 && person.sex == 'man' ? equal() : notEqual()
+
+	// <範例說明>大於25 並且 小於三十
+	// person.age > 25 && person.age < 30 ? equal() : notEqual()
+	// <範例說明>大於25 或者 小於三十
+	// person.age > 25 || person.age < 30 ? equal() : notEqual()
+
+	// <範例說明> !將會反轉資料的布林值，同樣使用兩個將會再次反轉
+	// console.log(!true);
+	// console.log(!!true);
+	// console.log(!!person);
+
+
+
+	// <額外補充>藉由型別轉換實現簡易條件判斷
+	var shopCart = []
+	// console.log(shopCart.length);
+	// shopCart.length ? console.log('有內容') : console.log('無內容');
+
+	// shopCart.push('apple')
+	// console.log(shopCart.length);
+	// shopCart.length ? console.log('有內容') : console.log('無內容');
+
+</script>
 
 </html>

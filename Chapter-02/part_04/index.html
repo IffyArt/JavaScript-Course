@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>畫面滑動控制</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			min-height: 200vh;
+			background-color: #0a1f30;
+		}
+
+		section {
+			position: relative;
+			display: flex;
+			overflow: hidden;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100vh;
+		}
+
+		section::before {
+			position: absolute;
+			bottom: 0;
+			z-index: 10;
+			width: 100%;
+			height: 100px;
+			background: linear-gradient(to top, #0a1f30, transparent);
+			content: '';
+		}
+
+		section::after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			width: 100%;
+			height: 100%;
+			background-color: #0a1f30;
+			content: '';
+
+			mix-blend-mode: color;
+		}
+
+		section img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: cover;
+
+			object-fit: cover;
+		}
+
+		#text {
+			position: relative;
+			z-index: 1;
+			color: white;
+			font-size: 10rem;
+		}
+
+		#road {
+			z-index: 2;
+		}
+	</style>
+</head>
+
+<body>
+
+	<section>
+		<img src="bg.jpg"
+				 id="bg"
+				 alt="背景">
+		<img src="moon.png"
+				 id="moon"
+				 alt="月亮">
+		<img src="mountain.png"
+				 id="mountain"
+				 alt="山景">
+		<img src="road.png"
+				 id="road"
+				 alt="道路">
+		<h2 id="text">Moon Show</h2>
+	</section>
+
+</body>
+
+<script>
+	let bg = document.getElementById('bg')
+	let moon = document.getElementById('moon')
+	let mountain = document.getElementById('mountain')
+	let road = document.getElementById('road')
+	let text = document.getElementById('text')
+
+	window.addEventListener('scroll', function () {
+		var value = window.scrollY
+
+		bg.style.top = value * 0.5 + 'px'
+		moon.style.left = -value * 0.5 + 'px'
+		mountain.style.top = -value * 0.15 + 'px'
+		bg.style.top = value * 0.15 + 'px'
+		text.style.top = value * 1 + 'px'
+	})
+
+</script>
+
+</html>

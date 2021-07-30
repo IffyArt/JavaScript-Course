@@ -1,0 +1,18 @@
+.img-aside {
+  margin-top: $layout-size_small;
+
+  @extend %flex-row;
+
+  &__info {
+    flex: 2;
+
+    img {
+      margin-top: $layout-size_small;
+      width: 100%;
+    }
+  }
+
+  &__img {
+    flex: 1;
+  }
+}

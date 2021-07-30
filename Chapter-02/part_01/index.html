@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+				rel="stylesheet">
+
+	<style>
+		/* css code */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			-webkit-scroll-behavior: smooth;
+			scroll-behavior: smooth;
+		}
+
+		body {
+			background: rgb(238, 174, 194);
+			display: grid;
+			place-items: center;
+			transition: all 1s;
+			height: 100vh;
+		}
+
+		.container {
+			width: 250px;
+			height: 350px;
+			box-shadow: 0px 2px 4px black;
+			background: white;
+			overflow: hidden;
+			z-index: 3;
+		}
+
+		.wrapper {
+			position: relative;
+			width: 250px;
+			height: 350px;
+			overflow: hidden;
+			box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.459);
+			color: rgb(160, 236, 241);
+		}
+
+		nav {
+			position: absolute;
+			top: 87%;
+			left: 0;
+			width: 100%;
+			height: 110px;
+			display: flex;
+			justify-content: space-evenly;
+			border-top: 1px solid gainsboro;
+			z-index: 8;
+			background: white;
+			color: rgb(150, 240, 177);
+		}
+
+		nav a {
+			padding: 10px;
+			text-decoration: none;
+			color: gray;
+			font-size: 1.4rem;
+		}
+
+		nav::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 36%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 50%;
+			height: 6px;
+			background: rgba(231, 228, 228, 0.801);
+			border-radius: 5px;
+		}
+
+		.content {
+			display: flex;
+			width: 750px;
+			height: 100%;
+		}
+
+		.item {
+			width: 250px;
+			color: black;
+			background: white;
+			display: flex;
+			row-gap: 25px;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.link {
+			transition: all 0.3s;
+		}
+
+		.tabone {
+			color: rgb(22, 22, 22);
+			transform: scale(1.1);
+			border-bottom: 1px solid black;
+		}
+
+		.line {
+			width: 40%;
+			height: 8px;
+			margin-top: 5px;
+			background: gainsboro;
+			border-radius: 8px;
+		}
+
+		.line:nth-child(2n) {
+			width: 55%;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<nav>
+				<a href="#搜尋"
+					 class="link link1">
+					<span class="material-icons">
+						plagiarism
+					</span>
+					<a href="#作者"
+						 class="link link2">
+						<span class="material-icons">
+							anchor
+						</span>
+					</a>
+					<a href="#相機"
+						 class="link link3">
+						<span class="material-icons">
+							camera_enhance
+						</span>
+					</a>
+			</nav>
+
+			<div class="content">
+				<div class="item item1"
+						 id="搜尋">
+					<span class="material-icons">
+						plagiarism
+					</span>
+					<span class="line"></span>
+					<span class="line"></span>
+					<span class="line"></span>
+				</div>
+				<div class="item item2"
+						 id="作者">
+					<span class="material-icons">
+						anchor
+					</span>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+				<div class="item item3"
+						 id="相機">
+					<span class="material-icons">
+						camera_enhance
+					</span>
+					<div class="line"></div>
+					<div class="line"></div>
+					<div class="line"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+
+	const container = document.body;
+	const tabOne = document.querySelector(".link1");
+	const tabTwo = document.querySelector(".link2");
+	const tabThree = document.querySelector(".link3");
+	const tabs = document.querySelectorAll(".link");
+
+	tabOne.classList.add("tabone");
+
+	tabOne.addEventListener("click", () => {
+		container.style.backgroundColor = "rgb(238, 174, 195)";
+		tabOne.classList.add("tabone");
+		tabThree.classList.remove("tabone");
+		tabTwo.classList.remove("tabone");
+	});
+
+	tabTwo.addEventListener("click", () => {
+		container.style.backgroundColor = "rgb(146, 146, 228)";
+		tabTwo.classList.add("tabone");
+		tabThree.classList.remove("tabone");
+		tabOne.classList.remove("tabone");
+	});
+
+	tabThree.addEventListener("click", () => {
+		container.style.backgroundColor = "rgb(245, 233, 67)";
+		tabThree.classList.add("tabone");
+		tabOne.classList.remove("tabone");
+		tabTwo.classList.remove("tabone");
+	});
+</script>
+
+</html>

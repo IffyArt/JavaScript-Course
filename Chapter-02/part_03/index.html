@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>簡易按鈕特效</title>
+</head>
+<style>
+	body {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	.btn {
+		display: block;
+		padding: 20px 40px;
+		background-color: teal;
+		color: white;
+	}
+
+	.wave-effect {
+		position: relative;
+	}
+
+	.wave-effect .wave {
+		position: absolute;
+		z-index: 300;
+		border-radius: 50%;
+		background-color: #ebebeb;
+		opacity: 0.75;
+		transform: scale(0);
+		animation: ripple 0.6s ease-out;
+	}
+
+	@keyframes ripple {
+		to {
+			opacity: 0;
+			transform: scale(2.5);
+		}
+	}
+</style>
+
+<body>
+	<a class="btn wave-effect">按鈕</a>
+</body>
+<script>
+	var buttons = document.getElementsByClassName('wave-effect');
+
+	var createWave = function (item) {
+		item.target.style.overflow = 'hidden';
+		var circle = document.createElement('div');
+		var rect = this.getBoundingClientRect();
+		var d = Math.max(this.clientWidth, this.clientHeight);
+		this.appendChild(circle);
+		circle.style.width = circle.style.height = d + 'px';
+		circle.style.left = item.clientX - rect.left - d / 2 + 'px';
+		circle.style.top = item.clientY - rect.top - d / 2 + 'px';
+		circle.classList.add('wave');
+
+		setTimeout(function () {
+			circle.remove();
+		}, 600);
+	}
+
+	var clearOverflow = function (item) {
+		item.target.style.overflow = null;
+	}
+
+	Array.prototype.forEach.call(buttons, function (b) {
+		b.addEventListener('mousedown', createWave);
+		b.addEventListener('mouseover', clearOverflow);
+	});
+
+</script>
+
+</html>

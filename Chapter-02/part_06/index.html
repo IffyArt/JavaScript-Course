@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>Loading Page 動畫特效</title>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	section {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		background-color: teal;
+	}
+
+	h2 {
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		color: white;
+		text-align: center;
+		font-size: 10vw;
+		line-height: 100vh;
+	}
+
+	.banner {
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		overflow: hidden;
+		flex-wrap: wrap;
+		width: 100%;
+		height: 100%;
+	}
+
+	.banner__blocks {
+		position: relative;
+		display: block;
+		width: 5vw;
+		height: 5vw;
+		animation: animate 0.75s ease-in-out forwards;
+	}
+
+	.banner__blocks:nth-child(even) {
+		animation: animate 1s ease-in-out forwards;
+	}
+
+
+	.banner__blocks:nth-child(7n+3) {
+		animation: animate 2.5s ease-in-out forwards;
+	}
+
+	.banner__blocks:nth-child(7n+7) {
+		animation: animate 1s ease-in-out forwards;
+	}
+
+	@keyframes animate {
+		0% {
+			opacity: 0;
+			transform: scale(0) translateY(1000px);
+		}
+
+		50% {
+			background: url(bg.jpg);
+			background-attachment: fixed;
+			background-position: center;
+			opacity: 1;
+		}
+
+		100% {
+			background: url(bg.jpg);
+			background-attachment: fixed;
+			background-position: center;
+			opacity: 1;
+			transform: scale(1) translateY(0px);
+		}
+	}
+</style>
+
+<body>
+
+	<section>
+		<div class="banner">
+			<div class="banner__blocks"></div>
+		</div>
+		<h2>JS Animation</h2>
+	</section>
+
+</body>
+<script>
+	const banner = document.getElementsByClassName('banner')[0]
+	const blocks = document.getElementsByClassName('banner__blocks')
+
+	for (var i = 1; i < 400; i++) {
+		banner.innerHTML += "<div class='banner__blocks'></div>"
+		blocks[i].style.animationDelay = `${i * 0.05}s`
+	}
+</script>
+
+</html>
