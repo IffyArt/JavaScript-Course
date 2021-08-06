@@ -100,6 +100,26 @@
 				</p>
 			</div>
 		</li>
+
+		<li class="accordion-list__item">
+			<a class="accordion-list__trigger">Lorem ipsum dolor sit amet </a>
+			<div class="accordion-list__content">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sint rem minima consectetur, itaque aliquam et,
+					labore magni corporis veritatis quam laboriosam vero! Suscipit eius non iusto hic sequi molestias?
+				</p>
+			</div>
+		</li>
+
+		<li class="accordion-list__item">
+			<a class="accordion-list__trigger">Lorem ipsum dolor sit amet </a>
+			<div class="accordion-list__content">
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut sint rem minima consectetur, itaque aliquam et,
+					labore magni corporis veritatis quam laboriosam vero! Suscipit eius non iusto hic sequi molestias?
+				</p>
+			</div>
+		</li>
 		<li class="accordion-list__item">
 			<a class="accordion-list__trigger">Lorem ipsum dolor sit amet </a>
 			<div class="accordion-list__content">
@@ -123,18 +143,18 @@
 </body>
 
 <script>
-	(function (window, document) {
-		var accordionList = document.getElementsByClassName("accordion-list__trigger");
 
-		var toggleAccordion = function () {
-			this.classList.toggle('active');
-			this.nextElementSibling.classList.toggle('active');
-		}
+	var accordionList = document.getElementsByClassName("accordion-list__trigger");
 
-		Array.prototype.forEach.call(accordionList, function (item) {
-			item.addEventListener('click', toggleAccordion)
-		});
-	})(this, this.document);
+	var toggleAccordion = function () {
+		this.classList.toggle('active');
+		this.nextElementSibling.classList.toggle('active');
+	}
+
+	Array.prototype.forEach.call(accordionList, function (item) {
+		item.addEventListener('click', toggleAccordion)
+	})
+
 </script>
 
 </html>

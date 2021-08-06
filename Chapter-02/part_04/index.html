@@ -15,11 +15,10 @@
 		}
 
 		body {
-			min-height: 200vh;
 			background-color: #0a1f30;
 		}
 
-		section {
+		.banner {
 			position: relative;
 			display: flex;
 			overflow: hidden;
@@ -29,7 +28,7 @@
 			height: 100vh;
 		}
 
-		section::before {
+		.banner::before {
 			position: absolute;
 			bottom: 0;
 			z-index: 10;
@@ -39,7 +38,7 @@
 			content: '';
 		}
 
-		section::after {
+		.banner::after {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -52,7 +51,7 @@
 			mix-blend-mode: color;
 		}
 
-		section img {
+		.banner img {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -73,12 +72,33 @@
 		#road {
 			z-index: 2;
 		}
+
+		.container {
+			margin: auto;
+			margin-top: 20px;
+			width: 80%;
+			color: white;
+			letter-spacing: 1px;
+			line-height: 1.5;
+		}
+
+		.container__title {
+			margin-bottom: 20px;
+			font-size: 2.5rem;
+		}
+
+		.footer {
+			margin-top: 40px;
+			width: 100%;
+			height: 80px;
+			background-color: rgba(255, 255, 255, 0.277);
+		}
 	</style>
 </head>
 
 <body>
 
-	<section>
+	<header class="banner">
 		<img src="bg.jpg"
 				 id="bg"
 				 alt="背景">
@@ -91,17 +111,32 @@
 		<img src="road.png"
 				 id="road"
 				 alt="道路">
-		<h2 id="text">Moon Show</h2>
-	</section>
+		<h1 id="text">Moon Show</h1>
+	</header>
 
+	<main>
+		<section class="container">
+			<h2 class="container__title">張參語運是要有賣金兩不準</h2>
+			<span>我義的能買的化，呢情式便老社步如子環學他的不著臺辦業！市排府生民。小經教，里海不育做合這感子東回想。安地表上如知種業國們相金，一五來分就張嚴陽，成好麼安己道不下是的洋洲畫嚴我，切海的。
+				<br />
+				之來這非、臺子外我到要達地出散里物：供身童溫育的際著打強名驗歡正球園然的然小保找建、發都的腦驗，主保大東、生天且大獨發：本樂沒海這歡容驗？
+				<br />未場大雖她心上作知定此背記環型分子題地在灣每字如就人亞以？登媽然面白所開任管最，其散片以行進一請天年這；月奇業一狀白推公學世問服就八。冷洋樣以：團河下不吸……陸方有以用其下，草面卻人金我票明整來不念心可時以口衣無現團感：里明子態河興也照斯孩用的女所們子設教並也信天生的部才……錯工議裡設公車於有要模血樂想不子的坡生間國國中臺長多世月際下大樓便我選……代代快有坐用身類金況；她政用智了；能裡爸濟的軍質候想少而據小光望中著演給來接不子成都人靜車文回上後界？非表學的們增看日多入明先須寫？</span>
+		</section>
+		<div class="card">
+			<header class="card__title"></header>
+		</div>
+	</main>
+	<footer class="footer">
+		I am Footer
+	</footer>
 </body>
 
 <script>
-	let bg = document.getElementById('bg')
-	let moon = document.getElementById('moon')
-	let mountain = document.getElementById('mountain')
-	let road = document.getElementById('road')
-	let text = document.getElementById('text')
+	const bg = document.getElementById('bg')
+	const moon = document.getElementById('moon')
+	const mountain = document.getElementById('mountain')
+	const road = document.getElementById('road')
+	const text = document.getElementById('text')
 
 	window.addEventListener('scroll', function () {
 		var value = window.scrollY
