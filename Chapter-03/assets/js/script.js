@@ -67,6 +67,7 @@ $(function () {
 $(function () {
   $('.image-filter__button button').click(function () {
     var target = $(this).attr('value')
+    console.log(target)
 
     $('.image-filter__list li').each(function () {
       $(this).animate({ opacity: 0 }, 300, function () {

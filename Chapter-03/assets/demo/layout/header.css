@@ -1,0 +1,48 @@
+.header {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 80px;
+  height: 100vh;
+  background-image: url('../../images/background.jpg');
+  background-attachment: fixed;
+  background-position: bottom;
+  background-size: cover;
+  color: white;
+}
+
+.header::after {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right bottom, #8BC6EC, #9699DD);
+  content: '';
+  opacity: 0.8;
+}
+
+.header img {
+  width: 170px;
+}
+
+.header__title {
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 3px;
+  font-size: 3rem;
+  line-height: 1.35;
+}
+
+.header__sub {
+  font-family: 'WindSong', cursive;
+}
+
+.header__container {
+  width: 80%;
+  text-align: center;
+  line-height: 2;
+}
