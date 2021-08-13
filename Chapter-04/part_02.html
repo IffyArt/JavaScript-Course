@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>簡單範例操作</title>
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>名稱：</td>
+			<td>
+				<h1 id="name"></h1>
+			</td>
+		</tr>
+		<tr>
+			<td>體型：</td>
+			<td>
+				<h2 id="size"></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>技能：</td>
+			<td>
+				<h2 id="skills"></h2>
+			</td>
+		</tr>
+		<tr>
+			<td>年紀：</td>
+			<td>
+				<h2 id="age"></h2>
+			</td>
+		</tr>
+	</table>
+
+
+	<script>
+		const nameElement = document.getElementById('name')
+		const sizeElement = document.getElementById('size')
+		const skillsElement = document.getElementById('skills')
+		const ageElement = document.getElementById('age')
+
+		const horse = {
+			name: '超級雞馬 🐴',
+			size: '大型',
+			skills: ['超速奔跑', '旋轉跳躍'],
+			age: 7
+		}
+
+		nameElement.innerHTML = horse.name
+		sizeElement.innerHTML = horse.size
+		skillsElement.innerHTML = horse.skills.join(' & ')
+		ageElement.innerHTML = horse.age
+
+
+		// 額外加碼 - 不簡單的範例
+
+		// let bio = horse.name + ' is a ' + horse.size + ' horse skilled in ' + horse.skills.join(' & ')
+
+		// const { name, size, skills } = horse;
+		// bio = `${name} is a ${size} horse skilled in ${skills.join(' & ')}`
+		// console.log(bio);
+
+		// function horseAge(str, age) {
+
+		// 	const ageStr = age > 5 ? 'old' : 'young';
+		// 	return `${str[0]}${ageStr} at ${age} years`;
+		// }
+
+		// const bio2 = horseAge`This horse is ${horse.age}`;
+		// console.log(bio2)
+
+	</script>
+
+</body>
+
+</html>

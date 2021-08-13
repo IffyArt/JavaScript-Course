@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>關於 JS 那些事</title>
+	<link rel="stylesheet"
+				href="style.css">
+</head>
+
+<body>
+	<main class="demo-box">
+		<article>
+			<h1>關於 JS 那些事</h1>
+			<h2>數字特性</h2>
+			<a
+				 href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/A_re-introduction_to_JavaScript#.e6.95.b8.e5.ad.97">Mozilla
+				的重新認識 JavaScript</a>
+		</article>
+	</main>
+
+	<script>
+		// 習以為常的 Console 操作
+		const foo = { name: 'tom', age: 30, nervous: false };
+		const bar = { name: 'dick', age: 40, nervous: false };
+		const baz = { name: 'harry', age: 50, nervous: true };
+
+		console.log(foo);
+		console.log(bar);
+		console.log(baz);
+
+		// 神奇的 Console 操作
+
+		console.log('%c 我的內容', 'color: orange; font-weight: bold;')
+		console.log({ foo, bar, baz });
+
+		console.table([foo, bar, baz])
+
+		// // Console.time
+		console.time('looper')
+
+		let i = 0;
+		while (i < 1000000) { i++ }
+
+		console.timeEnd('looper')
+
+		// // Stack Trace Logs
+
+		const CallMe = () => console.trace('我在跟蹤目標的痕跡')
+
+		CallMe()
+		CallMe()
+
+	</script>
+
+</body>
+
+</html>

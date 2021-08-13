@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.demo-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  min-height: 100vh;
+  font-size: 1.2rem;
+  line-height: 1.75;
+}
+
+.demo-box img {
+  width: 80%;
+}

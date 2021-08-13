@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>關於解構那檔事</title>
+	<link rel="stylesheet"
+				href="style.css">
+</head>
+
+<body>
+
+	<main class="demo-box">
+		<article>
+			<h1>關於解構那檔事</h1>
+			<h2>解構(destructuring)</h2>
+		</article>
+	</main>
+
+	<script>
+
+		const turtle = {
+			name: '鑽石 🐢',
+			legs: 4,
+			shell: true,
+			type: '北美鑽紋龜',
+			meal: 10,
+			diet: '生魚片？'
+		}
+
+
+		function feed(animal) {
+			return `餵食 ${animal.name} ${animal.meal} 小片 ${animal.diet}`;
+		}
+
+
+
+		// 更良好的解答
+
+		// function feed({ name, meal, diet }) {
+		// 	return `餵食 ${name} ${meal} 小片 ${diet}`;
+		// }
+
+		// 或者
+
+		// function feed(animal) {
+		// 	const { name, meal, diet } = animal;
+		// 	return `餵食 ${name} ${meal} 小片 ${diet}`;
+		// }
+
+
+
+		console.log(feed(turtle))
+
+	</script>
+
+</body>
+
+</html>
