@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>來一個更大的挑戰</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.navbar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			box-sizing: border-box;
+			padding: 0 100px;
+			width: 100%;
+			height: 80px;
+			background-color: tomato;
+			color: white;
+		}
+
+		.navbar__link {
+			display: flex;
+			list-style-type: none;
+		}
+
+		.navbar__link a {
+			margin-left: 10px;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+
+	<nav class="navbar">
+		<h1 class="navbar__logo">LOGO</h1>
+		<ul class="navbar__link"></ul>
+	</nav>
+
+	<script>
+		const navbar = document.getElementsByClassName('navbar__link')[0]
+
+		const link = [
+			{ title: 'link1', href: '/index.html' },
+			{ title: 'link2', href: '/Chapter-02' },
+			{ title: 'link3', href: '#' },
+			{ title: 'link4', href: '#' },
+			{ title: 'link5', href: '#' }
+		]
+
+		// const applyLink = ({ title, href }) => {
+		// 	navbar.innerHTML += `<li><a href="${href}">${title}</a></li>`
+		// }
+
+		// link.forEach(element => {
+		// 	applyLink(element)
+		// })
+
+		const applyLink = () => {
+			let linkList = ""
+			link.forEach(({ title, href }) => {
+				linkList += `<li><a href="${href}">${title}</a></li>`
+			})
+			navbar.innerHTML = linkList
+		}
+
+		applyLink()
+
+	</script>
+
+</body>
+
+</html>

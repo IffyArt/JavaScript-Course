@@ -36,44 +36,47 @@
 				<h2 id="age"></h2>
 			</td>
 		</tr>
+
+
 	</table>
 
 
 	<script>
 		const nameElement = document.getElementById('name')
-		const sizeElement = document.getElementById('size')
-		const skillsElement = document.getElementById('skills')
-		const ageElement = document.getElementById('age')
+		// const sizeElement = document.getElementById('size')
+		// const skillsElement = document.getElementById('skills')
+		// const ageElement = document.getElementById('age')
 
 		const horse = {
 			name: '超級雞馬 🐴',
 			size: '大型',
-			skills: ['超速奔跑', '旋轉跳躍'],
+			skills: ['超速奔跑', '旋轉跳躍', '旋轉跳躍'],
 			age: 7
 		}
 
-		nameElement.innerHTML = horse.name
-		sizeElement.innerHTML = horse.size
-		skillsElement.innerHTML = horse.skills.join(' & ')
-		ageElement.innerHTML = horse.age
+		// nameElement.innerHTML = horse.name
+		// sizeElement.innerHTML = horse.size
+		// skillsElement.innerHTML = horse.skills.join(' & ')
+		// ageElement.innerHTML = horse.age
 
 
 		// 額外加碼 - 不簡單的範例
 
 		// let bio = horse.name + ' is a ' + horse.size + ' horse skilled in ' + horse.skills.join(' & ')
+		// console.log(bio);
+		// nameElement.innerHTML = bio
 
 		// const { name, size, skills } = horse;
 		// bio = `${name} is a ${size} horse skilled in ${skills.join(' & ')}`
-		// console.log(bio);
+		// console.log(bio)
 
-		// function horseAge(str, age) {
+		function horseAge(str, age, size) {
+			const ageStr = age > 5 ? 'old' : 'young';
+			return `${str[0]}${ageStr} at ${age} years`;
+		}
 
-		// 	const ageStr = age > 5 ? 'old' : 'young';
-		// 	return `${str[0]}${ageStr} at ${age} years`;
-		// }
-
-		// const bio2 = horseAge`This horse is ${horse.age}`;
-		// console.log(bio2)
+		const bio2 = horseAge`This horse is ${horse.age} ${horse.size}`;
+		console.log(bio2)
 
 	</script>
 

@@ -24,6 +24,12 @@
 
 	<script>
 
+		var cartItems = []
+
+		console.table(cartItems)
+
+
+
 		// Get DOM elements
 		const form = document.querySelector('form');
 		const input = document.querySelector("[name='todo']");
@@ -54,6 +60,8 @@
 			event.preventDefault();
 			addTodo(input.value);
 		}
+
+		console.log(todoData);
 
 
 	</script>

@@ -8,9 +8,162 @@
 	<meta name="viewport"
 				content="width=device-width, initial-scale=1.0">
 	<title>我將接受挑戰</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			background-position: center;
+			background-size: cover;
+			background-repeat: no-repeat;
+			height: 100vh;
+		}
+
+		.container {
+			width: 300px;
+			margin: 0 auto;
+			text-align: center;
+			background: #22a6b3;
+			border-radius: 10px;
+			margin-top: 60px;
+		}
+
+		.container h1 {
+			color: white;
+		}
+
+		.container form {
+			padding: 0 35px;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.container input[type="text"] {
+			flex: 3;
+			margin-right: 10px;
+			padding-left: 5px;
+		}
+
+		.container input[type="text"]:focus {
+			outline: 0;
+		}
+
+		.container input[type="submit"] {
+			flex: 1;
+			background: white;
+			font-weight: 900;
+		}
+
+		.container input {
+			height: 25px;
+			border-width: 0;
+			border-radius: 3px;
+			color: #535c68;
+		}
+
+		.container ul,
+		.container li {
+			list-style: none;
+			padding: 0 35px;
+		}
+
+		.container ul {
+			padding-bottom: 20px;
+		}
+
+		.container li {
+			background: white;
+			padding: 2px 0 2px 25px;
+			font-size: .9em;
+			color: #535c68;
+			position: relative;
+		}
+
+		.container li:nth-last-of-type(2n) {
+			background: #7ed6df;
+			color: white;
+		}
+
+		.container li span {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			width: 25px;
+			color: white;
+			background: #ff7979;
+			cursor: pointer;
+		}
+	</style>
 </head>
 
 <body>
+	<div class="container">
+		<h1>Your Wish List</h1>
+		<form>
+			<input type="text"
+						 name='wish'
+						 placeholder="Create a new wish"
+						 required
+						 maxlength="25">
+			<input type="submit"
+						 value="Send">
+		</form>
+		<ul>
+			<!--Display wishes here-->
+		</ul>
+	</div>
+
+
+	<script>
+		(function () {
+			const form = document.querySelector('form')
+			const displayArea = document.querySelector('ul')
+			const wishList = JSON.parse(localStorage.getItem('wishList')) || []
+
+			function displayWishList() {
+				wishList.forEach(wish => displayWish(wish))
+			}
+
+			function displayWish(input) {
+				displayArea.innerHTML += `
+      <li>${input}<span>X</span></li>
+    `
+			}
+
+			function updateLocalStorage() {
+				localStorage.setItem('wishList', JSON.stringify(wishList))
+			}
+
+			//display all the wish on the list from localStorage
+			displayWishList()
+
+
+			form.addEventListener('submit', event => {
+				event.preventDefault()
+				const input = document.querySelector('input[type="text"]')
+
+				if (input.value.trim()) {
+					displayWish(input.value)
+					wishList.push(input.value)
+					updateLocalStorage(input.value)
+				}
+
+				input.value = ''
+			})
+
+			displayArea.addEventListener('click', event => {
+				if (event.target.tagName !== 'SPAN') { return }
+				const li = event.target.parentElement
+				li.remove()
+				wishList.splice(wishList.indexOf(li.textContent.slice(0, -1)), 1)
+				updateLocalStorage()
+			})
+
+		})()
+	</script>
 
 </body>
 

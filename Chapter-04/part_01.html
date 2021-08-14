@@ -39,13 +39,19 @@
 		// JSON - https://www.json.org/json-en.html
 
 		// 簡單的 JavaScript Object 範例說明
-		let personObject = {}
-		personObject.name = 'Iffy'
-		personObject.age = 24
-		personObject.sex = 'male'
+		// let personObject = {}
+		// personObject.name = 'Iffy'
+		// personObject.age = 24
+		// personObject.sex = 'male'
 
-		console.log(personObject);
-		console.log(personObject.name);
+		let person = {
+			name: 'Iffy',
+			age: 23,
+			sex: 'male'
+		}
+
+		// console.log(personObject);
+		// console.log(personObject.name);
 
 		// 簡單的 JSON(JavaScript Object Notation) 範例說明
 		// 標準的 '名稱':值 結構
@@ -59,20 +65,27 @@
 				'email': 'test@foo.com',
 				'directions': 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
 			},
+			'mod': function () { console.log('I am mod'); }
 		}
+		// itemObject.mod()
+		// console.log(itemObject);
+		// console.log(JSON.stringify(itemObject));
 
 		let stringItemObject = JSON.stringify(itemObject)
 
-		console.log(itemObject); // log 時將會發現前面數值
-		console.log(itemObject.pages); // 能正常印出入和數值
+		// console.log(itemObject); // log 時將會發現前面數值
+		// console.log(itemObject.pages); // 能正常印出入和數值
 
 		// JSON. 您專案上轉換 JSON 的好幫手
-		console.log(stringItemObject);
-		console.log(JSON.parse(stringItemObject));
+		// console.log(itemObject)
+		// console.log(stringItemObject)
+		// console.log(JSON.parse(stringItemObject))
 
 		var face = { "face": "😂" }
 		// or
 		var face = { "face": "\uD83D\uDE02" }
+
+		console.log(face.face);
 
 	</script>
 </body>
