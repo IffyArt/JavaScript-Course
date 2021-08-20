@@ -1,0 +1,53 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header__container {
+  z-index: 100;
+  margin-bottom: 300px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.header h1 {
+  font-size: 3rem;
+}
+
+.header__img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.header__img--background {
+  background-image: url('../../images/background.png');
+  background-position: bottom center;
+}
+
+.header__img--background::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px;
+  background-image: linear-gradient(to bottom, transparent, white);
+  content: '';
+}
+
+.header__img--person {
+  background-image: url('../../images/person-rock.png');
+  background-position: bottom center;
+}
+
+.header__img--rock {
+  background-image: url('../../images/rock.png');
+  background-position: bottom left;
+  background-size: 50%;
+}

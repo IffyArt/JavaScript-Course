@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+	<h1><a href="https://2b6fd5513be8.ngrok.io/docs/">Swagger 文件</a></h1>
+
+</body>
+<script>
+
+	// 建立實體
+	const apiRequest = axios.create({
+		baseURL: 'http://2b6fd5513be8.ngrok.io/',
+		headers: { 'Content-Type': 'application/json' },
+		timeout: 4000
+	})
+
+	// 建立攔截器
+	apiRequest.interceptors.response.use(
+		function (response) {
+			return response
+		},
+		function (error) {
+			console.log(error.response.data);
+			return Promise.reject(error)
+		}
+	)
+
+	const apiTodoList = () => apiRequest.get('/api/todo/')
+	const apiTodoPersonList = id => apiRequest.get(`/todo?user_id=${id}`) // 需資料驗證
+	const apiTodoListItem = id => apiRequest.get(`/api/todo/${id}/`) // 需資料驗證
+	const apiTodoListItemCreate = data => apiRequest.post(`/api/todo/`, data) // 需資料驗證
+	const apiTodoListItemUpdate = (id, data) => apiRequest.put(`/api/todo/${id}/`, data) // 需資料驗證
+	const apiTodoListItemModify = (id, data) => apiRequest.patch(`/api/todo/${id}/`, data) // 需資料驗證
+	const apiTodoListItemRemove = id => apiRequest.get(`/api/todo/${id}/`) // 需資料驗證
+
+	const apiSignUp = data => apiRequest.post('​/signup​/', data)
+
+	const apiToken = data => apiRequest.post('​/token​/', data)
+	const apiTokenRefresh = data => apiRequest.post('​/token​/refresh', data) // 需資料驗證
+
+	// // Catch 範例開頭
+	// apiTodoPersonList(1)
+	// 	.then(res => console.log(res))
+	// 	.catch((err) => {
+	// 		console.log(err.response.data)
+	// 	})
+	// // Catch 範例結尾
+
+	apiTodoList()
+		.then(res => console.log(res))
+
+</script>
+
+</html>

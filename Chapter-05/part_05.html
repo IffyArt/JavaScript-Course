@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>Axios 提供的便利</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+
+	// 很常看到的 GET 寫法
+
+	// axios.get('https://jsonplaceholder.typicode.com/todos/1')
+	// 	.then(res => {
+	// 		console.log(res)
+	// 	})
+	// 	.catch(err => {
+	// 		console.log(err.message)
+	// 	})
+
+	// 大部分看到的 POST 寫法
+
+	// let params = { name: 'iffy', status: 'ok' }
+
+	// axios.post(url, params)
+	// 	.then(res => {
+	// 		console.log(res)
+	// 	})
+	// 	.catch(err => {
+	// 		console.error(err);
+	// 	})
+
+	// 以上的做法其實非常標準，但是當 API 的數量增多或是要新增驗證時，就會產生許多重複的行數
+
+	// 像是以下這個範例需要在 headers 裡面帶 Authorization 以取得資料
+
+	// const config = {
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 		Authorization: `Bearer ${userInfo.token}`,
+	// 	},
+	// }
+	// axios.get(`yourUrl`, config)
+
+
+	const jsonRequest = axios.create({
+		baseURL: 'https://jsonplaceholder.typicode.com/',
+		headers: { 'Content-Type': 'application/json' },
+		timeout: 2000
+	})
+
+	// // 攔截器
+
+	// jsonRequest.interceptors.response.use(
+	// 	function (config) {
+	// 		// Do something before request is sent
+	// 		console.log(config);
+	// 		return config;
+	// 	},
+	// 	function (error) {
+	// 		// Do something with request error
+	// 		return Promise.reject(error);
+	// 	}
+	// );
+
+	// // 建立區域
+
+	// const apiTodo = data => jsonRequest.get('/todos', data)
+	// const apiTodoItem = (id, data) => jsonRequest.get(`/todos/${id}`, data)
+
+	// const apiPost = data => jsonRequest.get('/posts', data)
+	// const apiPostItem = id => jsonRequest.get(`/posts/${id}`)
+	// const apiPostItemComments = id => jsonRequest.get(`/posts/${id}/comments`)
+	// const apiPostItemCommentsSearch = id => jsonRequest.get(`/comments?postId=${id}`)
+
+	// const apiComments = data => jsonRequest.get('/comments', data)
+
+	// // 呼叫區域
+
+	// apiTodo().then(res => console.log(res))
+	// apiTodoItem(1).then(res => console.log(res))
+
+
+	// apiPost().then(res => console.log(res))
+	// apiPostItem(1).then(res => console.log(res))
+	// apiPostItemCommentsSearch(1).then(res => console.log(res))
+	// apiPostItemCommentsSearch(1).then(res => console.log(res))
+
+
+	// apiComments().then(res => console.log(res))
+
+
+</script>
+
+</html>

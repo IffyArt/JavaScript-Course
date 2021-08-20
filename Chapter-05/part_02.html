@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>初步探索 Promise</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+	<h1>
+		Promise(承諾)是什麼？他有什麼意義？
+	</h1>
+	<p>
+		<br>
+		在 JavaScript ES6 中，Promise 加入了我們這個大家庭，實際上在過往的 JavaScript 內，我們對於非同步的處理，大多數是採用 callbacks 的操作方式，而這麼做的弊端，我們可以在下面的範例中觀賞一下
+		回呼地獄(callback hell)或稱毀滅金字塔(pyramid of
+		doom)，即使我們可透過封裝函示與重構等方式去將她優雅化，但依舊會有著更多的問題以及作用域產生，最後您的開發體驗就會像是偵探遊戲一樣，只是您同時會扮演偵探與犯人的角色．
+	</p>
+	<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Using_promises">相關文件</a>
+	<p>
+		Promise(承諾)
+		就如同其名一樣，以現實範例舉例，就像是你去了一間餐廳點送出菜單之後，你會得到一個明細或收據亦或是號碼牌(Promise)，而當餐點完成之時，服務生就會將餐點交付給你，而依據即為你手上手持有的票據等．<br />
+		當然，Promise 有時會得到一些令人沮喪的結果，如在菜單送出之後，店員跑來跟你說您點的餐點售完了等等(ERROR)，此時就會進去另一段的流程處理，但那就是後話了．
+	</p>
+	<span>下圖是 Promise 的生命週期</span>
+	<img src="assets/images/promise.png"
+			 alt="展示圖" />
+
+	<script>
+
+		// 有些時候程式並不是單純由上到下讀的
+
+		// let str = 'init'
+
+		// const wait = () => {
+		// 	str = '我改變了'
+		// 	console.log(str);
+		// }
+
+		// setTimeout(wait, 3000)
+
+		// console.log(str)
+
+		// let data = {}
+
+		// // 使用過去常用的 JQuery 的 ajax 送出請求
+
+		// $.ajax({
+		// 	url: 'https://jsonplaceholder.typicode.com/todos/1',
+		// 	dataType: 'json',
+		// 	// async: false, // 使用 async 將 ajax 請求改為同步
+		// 	success: function (status) {
+		// 		data = status
+		// 	}
+		// })
+
+		// //data為statue
+		// console.log(data)
+
+
+
+
+
+
+		// // 以下僅供概念參考
+		// var data = ajax("http://test.url.1")
+		// console.log(data);
+		// 在這個範例中，data 幾乎不可能不印出來，因為同步往下執行時 data 的資料還沒獲取
+
+		// function now() {
+		// 	return 21
+		// }
+
+		// function later() {
+		// 	answer = answer * 2
+		// 	console.log("生命的意義:", answer);
+		// }
+
+		// var answer = now()
+
+		// setInterval(later, 1000)
+
+		// 回呼地獄(callback hell)或稱毀滅金字塔(pyramid of doom) 在正規實例中還會更多資料
+
+		// listen("click", function handler(evt) {
+		// 	setTimeout(function request() {
+		// 		ajax("http://test.url.1"), function response(text) {
+		// 			if (text == "hello") {
+		// 				handler()
+		// 			} else if (text == "world") {
+		// 				request()
+		// 			}
+		// 		}
+		// 	}, 500);
+		// })
+
+		// 建立本範例線性思維
+
+		// 首先(now)
+		// listen("..",function handler(..){
+		//	//...
+		// })
+
+		// 這之後(later)
+		// setTimeout(function request() {
+		// 	//...
+		// }, 500);
+
+		// 再之後(later)
+		// ajax("..",function response(..){
+		// 	//...
+		// })
+
+		// 最後(end)
+		// if (text == "hello") {
+		// 	handler()
+		// } else
+
+
+
+
+		// 實作一個 Promise 吧！
+
+		// const promise1 = new Promise((resolve, reject) => {
+		// 	setTimeout(() => {
+		// 		resolve('foo');
+		// 	}, 300);
+		// });
+
+		// promise1.then((value) => {
+		// 	console.log(value);
+		// 	// expected output: "foo"
+		// });
+
+		// console.log(promise1);
+		// // expected output: [object Promise]
+
+		// const newPromise = new Promise((resolve, reject) => {
+		// 	setTimeout(() => {
+		// 		if (Math.random() > 0.5) {
+		// 			resolve('changed')
+		// 		}
+		// 		else {
+		// 			reject('error')
+		// 		}
+		// 	}, 3000)
+		// }).then((data) => {
+		// 	console.log(data)
+		// }).catch((error) => {
+		// 	console.log(error)
+		// })
+
+		// new Promise((resolve, reject) => {
+		// 	console.log('Initial')
+
+		// 	resolve();
+		// })
+		// 	.then(() => {
+		// 		throw new Error('Something failed');
+
+		// 		console.log('Do this');
+		// 	})
+		// 	.catch(() => {
+		// 		console.log('Do that');
+		// 	})
+		// 	.then(() => {
+		// 		console.log('Do this whatever happened before');
+		// 	})
+
+		// Promise.all
+
+		// var p1 = Promise.resolve(3);
+		// var p2 = 1337;
+		// var p3 = new Promise((resolve, reject) => {
+		// 	setTimeout(resolve, 2000, 'foo');
+		// });
+
+		// Promise.all([p1, p2, p3]).then(values => {
+		// 	console.log(values); // [3, 1337, "foo"]
+		// });
+	</script>
+</body>
+
+</html>

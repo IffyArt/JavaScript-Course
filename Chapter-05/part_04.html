@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+				content="IE=edge">
+	<meta name="viewport"
+				content="width=device-width, initial-scale=1.0">
+	<title>多種範例展示</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			padding: 60px;
+			line-height: 1.5;
+		}
+
+		h1,
+		h2 {
+			margin-bottom: 0.5rem;
+		}
+
+		ul {
+			margin-left: 2rem;
+			line-height: 2;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>01_XMLHttpRequest</h1>
+	<h2>基本介紹</h2>
+	<p>
+		此方法為最開始普遍使用的請求方式，但實際上因為其過於複雜的撰寫結構與呼叫函式，導致在 jQuery 開始流行並加入 ajax 方法後，就迅速地退出了歷史的舞台
+	</p>
+	<br />
+	<h2>所遇問題</h2>
+	<ul>
+		<li>過於複雜的請求構築，再加入 UI 以及其他呼叫時過於雜亂</li>
+		<li>需藉由複雜的 callback 與其他操作完善體驗與重構</li>
+		<li>使用社群基本已漸漸消失(除了較舊專案外)</li>
+	</ul>
+	<br />
+	<script src="https://gist.github.com/IffyArt/88cdd1074f4e524e200a12d636341654.js"></script>
+	<br />
+	<h1>02_jQuery ajax</h1>
+	<p>在現在的網頁開發中，其實有很多的框架或函示庫都包含了 Http Request 的操作，但當中最為人所知的，目前還是以 jQuery 為主，因為在當時的開發體驗上，若要將前端網站單獨拆解出來接收資料的話，jQuery
+		所提供的這套方式，確實是一個最佳首選</p>
+	<a href="https://api.jquery.com/jquery.ajax/">官方文件</a>
+	<br />
+	<br />
+	<h2>所遇問題</h2>
+	<ul>
+		<li>jQuery 作為一個流行一時的前端技術，一些版本存在著資安上的疑慮</li>
+		<li>函式庫本身太過龐大，會載入大量不必要的程式</li>
+		<li>基於XHR作為開發基底，整體架構實際上不好理解且不夠清晰</li>
+		<li>ES6 推出了新的解決方法</li>
+	</ul>
+	<br />
+	<script src="https://gist.github.com/IffyArt/6c55f99b3ff9b25df6a6203540c3dfb7.js"></script>
+	<br />
+	<h1>03_Fetch(ES6 原生)</h1>
+	<p>fetch 是在 ES6 中所提供的 request 的新方法，他使用上相較之前的方法有明顯的優化，同時也有一些與過往設計上不同的地方</p>
+	<br />
+	<h2>主要差異</h2>
+	<ul>
+		<li>fetch 將會使用同為 ES6 的 Promise 物件進行回應</li>
+		<li>因應使用了 Promise 進行回應，所以需要透過 .then 與 .catch 進行後續操作</li>
+		<li>回傳的資料需要再藉由相應的方法轉為可用的資料型態（JSON,BLOB）</li>
+	</ul>
+	<a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Fetch_API">MDN 官網</a>
+	<br />
+	<br />
+	<h2>所遇問題</h2>
+	<ul>
+		<li>對 400,500 等錯誤訊息都會當成功的請求，需使用 catch 等方法自行處理</li>
+		<li>預設是沒有攜帶 cookie 等驗證用資料(都需要自行新增)</li>
+		<li>較早的瀏覽器版本並不支援</li>
+		<li>無法監聽請求進度與處理 timeout 問題</li>
+	</ul>
+	<br />
+	<script src="https://gist.github.com/IffyArt/7221126ec147e2026d248199470a204b.js"></script>
+	<br />
+	<h1>04_Axios</h1>
+	<p>Axios 的常用做法與 Fetch 雷同，均可建立在 Promise 的基礎上進行設計的，同時由於底層是使用原生 XHR 進行封裝，因此在 node.js
+		中也可輕鬆使用也具有較高的支援度，且支持並發請求等，現階段的定位有點像過往技術的整體優化，並獨自提供了蠻多方便的實體建立與攔截器</p>
+	<a href="https://github.com/axios/axios">Axios Github 文件</a>
+	<br />
+	<br />
+	<h2>所遇問題(瑕不掩瑜)</h2>
+	<ul>
+		<li>需要學習額外非原生的操作方式</li>
+		<li>需額外載入一包檔案(約13kb)</li>
+	</ul>
+	<br />
+	<h2>優點</h2>
+	<ul>
+		<li>支援防 CSRF 攻擊<a href="https://zh.wikipedia.org/wiki/%E8%B7%A8%E7%AB%99%E8%AF%B7%E6%B1%82%E4%BC%AA%E9%80%A0">連結</a>
+		</li>
+		<li>可以在 node.js 中使用</li>
+		<li>支持 Promise API</li>
+		<li>提供並發請求功能</li>
+		<li>易於使用且方便擴展</li>
+		<li>自動轉換 JSON</li>
+	</ul>
+	<br />
+	<script src="https://gist.github.com/IffyArt/cf1662359f3179445f6106f13a727154.js"></script>
+
+
+	<script>
+		// Ajax 即為 “Asynchronous Javascript And XML” 非同步的 JavaScript 跟 XML
+
+		// 使用範例 - https://randomuser.me/
+
+		// // XMLHttpRequest
+		// function reqOnload() {
+		// 	const data = JSON.parse(this.responseText);
+		// 	console.log(data);
+		// }
+		// function reqError(err) {
+		// 	console.log('錯誤', err)
+		// }
+		// // 宣告一個 XHR 的物件
+		// var request = new XMLHttpRequest();
+		// // 定義連線方式
+		// request.open('get', 'https://randomuser.me/api/', true);
+		// // 送出請求
+		// request.send();
+		// // 如果成功就執行 reqOnload()
+		// request.onload = reqOnload;
+		// // 失敗就 reqError()
+		// request.onerror = reqError;
+
+
+		// // jQuery
+
+		// $.ajax({
+		// 	url: 'https://randomuser.me/api/',
+		// 	dataType: 'json',
+		// 	success: function (data) {
+		// 		console.log(data);
+		// 	}
+		// });
+
+
+		// // Fetch
+
+		// fetch('https://randomuser.me/api/', {
+		// 	method: 'get',
+		// 	mode: 'no-cors',
+		// 	data: {}
+		// }).then(res => console.log(res));
+
+		// fetch('https://randomuser.me/api/', {})
+		// 	.then((response) => {
+		// 		console.log(response);
+		// 		return response.json();
+		// 	}).then((data) => {
+		// 		console.log(data);
+		// 	}).catch((err) => {
+		// 		console.log('錯誤:', err);
+		// 	});
+
+		// // 上方範例中，我們使用了第一個 .then 的 return 返回了 json 給第二個 .then 接收
+
+		// 加上 async await (ES7) 的 Fetch
+
+		// async function test() {
+		// 	let response = await fetch('https://randomuser.me/api/');
+		// 	let data = await response.json();
+		// 	console.log(data)
+		// }
+		// test()
+
+		// 小補充：在使用 post 類型的操作時，若不將 data 以 JSON.stringify 的方式轉成字串的話，他會被自動轉成 [object Object] 送至 server，並導致錯誤
+
+
+		// Axios
+
+		// axios.get('https://randomuser.me/api/')
+		// 	.then(function (response) {
+		// 		console.log(response);
+		// 	})
+		// 	.catch(function (error) {
+		// 		// handle error
+		// 		console.log(error);
+		// 	})
+		// 	.finally(function () {
+		// 		// always executed
+		// 		console.log('我不管成功失敗都會執行');
+		// 	});
+
+	</script>
+</body>
+
+</html>

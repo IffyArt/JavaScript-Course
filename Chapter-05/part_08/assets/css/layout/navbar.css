@@ -1,0 +1,28 @@
+.navbar {
+  position: fixed;
+  width: 100%;
+  color: white;
+  color: rgb(41, 50, 63);
+  font-weight: 500;
+  z-index: 10;
+  z-index: 1000;
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  max-width: 1200px;
+  width: 80%;
+  height: 80px;
+}
+
+.navbar__link {
+  display: inline-flex;
+  list-style-type: none;
+}
+
+.navbar__link li {
+  margin-left: 20px;
+}
