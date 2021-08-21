@@ -70,42 +70,82 @@
 	<script>
 		const todoList = document.querySelector('.todo-list')
 
-		const demoData = { userId: 1, id: 1, title: "第一筆測試資料", completed: false };
+		// const demoData = { userId: 2, id: 10, title: "第二筆測試資料", completed: false };
 
-		// 單純的 DOM 控制
+		// // 單純的 DOM 控制
 
-		const init = data => {
-			let parent = document.createElement("li")
+		// const init = data => {
+		// 	let parent = document.createElement("li")
 
-			let id = document.createElement("span")
-			id.classList = 'todo-list__id'
-			id.append(data.id)
+		// 	let id = document.createElement("span")
+		// 	id.classList = 'todo-list__id'
+		// 	id.append(data.id)
 
-			let userId = document.createElement("span")
-			userId.classList = 'todo-list__user'
-			userId.append(data.userId)
+		// 	let userId = document.createElement("span")
+		// 	userId.classList = 'todo-list__user'
+		// 	userId.append(data.userId)
 
-			let title = document.createElement("h1")
-			title.classList = 'todo-list__title'
-			title.append(data.title)
+		// 	let title = document.createElement("h4")
+		// 	title.classList = 'todo-list__title'
+		// 	title.append(data.title)
 
-			let completed = document.createElement("div")
-			completed.classList = 'todo-list__completed'
-			completed.append(data.completed)
+		// 	let completed = document.createElement("div")
+		// 	completed.classList = 'todo-list__completed'
+		// 	completed.append(data.completed)
 
-			parent.append(id, userId, title, completed)
+		// 	parent.append(id, userId, title, completed)
 
-			todoList.append(parent)
-		}
+		// 	todoList.append(parent)
+		// }
 
-		init(demoData)
+		// init(demoData, 222)
 
 		// 	使用外部檔案操作 JSON
 
 		// fetch('assets/json/todo.json')
 		// 	.then(response => response.json())
-		// 	.then(data => {
-		// 		data = data[3]
+		// 	.then(json => {
+		// 		let data = json[0]
+
+		// 		let parent = document.createElement("li")
+
+		// 		let id = document.createElement("span")
+		// 		id.classList = 'todo-list__id'
+		// 		id.append(data.id + '-' + data.content)
+
+		// 		let userId = document.createElement("span")
+		// 		userId.classList = 'todo-list__user'
+		// 		userId.append(data.userId)
+
+		// 		let title = document.createElement("h1")
+		// 		title.classList = 'todo-list__title'
+		// 		title.append(data.title)
+
+		// 		let completed = document.createElement("div")
+		// 		completed.classList = 'todo-list__completed'
+		// 		completed.append(data.completed)
+
+		// 		parent.append(id, userId, title, completed)
+
+		// 		todoList.append(parent)
+		// 	})
+
+
+		// 測試用 API 連結 - https://jsonplaceholder.typicode.com/
+		// const API_URL = 'https://jsonplaceholder.typicode.com/'
+
+		// fetch(`${API_URL}comments?postId=1`)
+		// 	.then(response => response.json())
+		// 	.then(json => console.log(json))
+
+		// 單個項目顯示
+		// fetch('https://jsonplaceholder.typicode.com/todos/2')
+		// 	.then((response) => {
+		// 		console.table(response)
+		// 		return response.json()
+		// 	}).then((data) => {
+		// 		console.table(data)
+
 		// 		let parent = document.createElement("li")
 
 		// 		let id = document.createElement("span")
@@ -127,52 +167,17 @@
 		// 		parent.append(id, userId, title, completed)
 
 		// 		todoList.append(parent)
-
 		// 	})
-
-
-		// 測試用 API 連結 - https://jsonplaceholder.typicode.com/
-
-		// fetch('https://jsonplaceholder.typicode.com/todos/1')
-		// 	.then(response => response.json())
-		// 	.then(json => console.log(json))
-
-		// 單個項目顯示
-		// fetch('https://jsonplaceholder.typicode.com/todos/1').then((response) => {
-		// 	console.log(response)
-		// 	return response.json()
-		// }).then((data) => {
-		// 	console.log(data)
-
-		// 	let parent = document.createElement("li")
-
-		// 	let id = document.createElement("span")
-		// 	id.classList = 'todo-list__id'
-		// 	id.append(data.id)
-
-		// 	let userId = document.createElement("span")
-		// 	userId.classList = 'todo-list__user'
-		// 	userId.append(data.userId)
-
-		// 	let title = document.createElement("h1")
-		// 	title.classList = 'todo-list__title'
-		// 	title.append(data.title)
-
-		// 	let completed = document.createElement("div")
-		// 	completed.classList = 'todo-list__completed'
-		// 	completed.append(data.completed)
-
-		// 	parent.append(id, userId, title, completed)
-
-		// 	todoList.append(parent)
-		// })
 
 		// 多個項目顯示
 
-		// fetch('https://jsonplaceholder.typicode.com/todos/')
+		// fetch('https://jsonplaceholder.typicode.com/posts')
 		// 	.then(response => response.json())
 		// 	.then((data) => {
-		// 		data.forEach(item => {
+		// 		console.table(data);
+
+		// 		data.forEach((item, index) => {
+		// 			console.log(index);
 		// 			let parent = document.createElement("li")
 
 		// 			let id = document.createElement("span")
@@ -189,7 +194,7 @@
 
 		// 			let completed = document.createElement("div")
 		// 			completed.classList = 'todo-list__completed'
-		// 			completed.append(item.completed)
+		// 			completed.append(item.body)
 
 		// 			parent.append(id, userId, title, completed)
 
@@ -202,7 +207,7 @@
 		// 台北 Open Data 平台： https://data.taipei/#/
 		// 即時水位： https://data.gov.tw/dataset/25768
 
-		// fetch('https://data.wra.gov.tw/OpenAPI/api/OpenData/2D09DB8B-6A1B-485E-88B5-923A462F475C/Data?size=20&page=1')
+		// fetch('https://data.taipei/api/v1/dataset/98425449-a03c-4bf6-a54c-5831a2e4d470?scope=resourceAquire')
 		// 	.then(response => response.json())
 		// 	.then(json => console.log(json))
 

@@ -17,6 +17,16 @@
 <script>
 
 	// 很常看到的 GET 寫法
+	// const API_URL = 'https://jsonplaceholder.typicode.com'
+	// const API_TEST_URL = 'https://jsonplaceholder.typicode.com/'
+
+	// axios.get(`${API_URL}/todos`)
+	// 	.then(res => {
+	// 		console.log(res)
+	// 	})
+	// 	.catch(err => {
+	// 		console.log(err.message)
+	// 	})
 
 	// axios.get('https://jsonplaceholder.typicode.com/todos/1')
 	// 	.then(res => {
@@ -38,6 +48,24 @@
 	// 		console.error(err);
 	// 	})
 
+	// const token = JSON.parse(localStorage.getItem(''))
+
+	// const options = {
+	// 	method: 'POST',
+	// 	url: 'http://2b6fd5513be8.ngrok.io/api/todo/',
+	// 	headers: {
+	// 		'Content-Type': 'application/json',
+	// 		Authorization: `Bearer ${token}`
+	// 	},
+	// 	data: { title: 'test', content: 'wwwww' }
+	// };
+
+	// axios.request(options).then(function (response) {
+	// 	console.log(response.data);
+	// }).catch(function (error) {
+	// 	console.error(error);
+	// });
+
 	// 以上的做法其實非常標準，但是當 API 的數量增多或是要新增驗證時，就會產生許多重複的行數
 
 	// 像是以下這個範例需要在 headers 裡面帶 Authorization 以取得資料
@@ -57,36 +85,39 @@
 		timeout: 2000
 	})
 
-	// // 攔截器
-
-	// jsonRequest.interceptors.response.use(
-	// 	function (config) {
-	// 		// Do something before request is sent
-	// 		console.log(config);
-	// 		return config;
-	// 	},
-	// 	function (error) {
-	// 		// Do something with request error
-	// 		return Promise.reject(error);
-	// 	}
-	// );
-
 	// // 建立區域
 
-	// const apiTodo = data => jsonRequest.get('/todos', data)
-	// const apiTodoItem = (id, data) => jsonRequest.get(`/todos/${id}`, data)
+	const apiTodo = () => jsonRequest.get('/todos')
+	const apiTodoItem = id => jsonRequest.get(`/todos/${id}`)
 
-	// const apiPost = data => jsonRequest.get('/posts', data)
-	// const apiPostItem = id => jsonRequest.get(`/posts/${id}`)
-	// const apiPostItemComments = id => jsonRequest.get(`/posts/${id}/comments`)
-	// const apiPostItemCommentsSearch = id => jsonRequest.get(`/comments?postId=${id}`)
+	const apiPost = data => jsonRequest.get('/posts', data)
+	const apiPostItem = id => jsonRequest.get(`/posts/${id}`)
+	const apiPostItemComments = id => jsonRequest.get(`/posts/${id}/comments`)
+	const apiPostItemCommentsSearch = id => jsonRequest.get(`/comments?postId=${id}`)
 
-	// const apiComments = data => jsonRequest.get('/comments', data)
+	const apiComments = data => jsonRequest.get('/comments', data)
+
+	// const token = JSON.parse(localStorage.getItem('userToken'))
+
+	// const login = () => {
+	// 	jsonRequest.defaults.headers.Authorization = `Bearer ${token}`
+	// }
+
+	// const logout = () => {
+	// 	delete jsonRequest.headers.Authorization
+	// }
+
 
 	// // 呼叫區域
 
-	// apiTodo().then(res => console.log(res))
-	// apiTodoItem(1).then(res => console.log(res))
+
+
+	// apiTodo().then(res => {
+	// 	console.log(res)
+	// })
+	apiTodoItem('1').then(res => {
+		console.log(res)
+	})
 
 
 	// apiPost().then(res => console.log(res))

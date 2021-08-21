@@ -36,20 +36,20 @@
 
 		// 有些時候程式並不是單純由上到下讀的
 
-		// let str = 'init'
+		// var str = 'init'
 
 		// const wait = () => {
 		// 	str = '我改變了'
 		// 	console.log(str);
 		// }
 
-		// setTimeout(wait, 3000)
+		// setTimeout(wait, 2000)
 
 		// console.log(str)
 
-		// let data = {}
+		let data = {}
 
-		// // 使用過去常用的 JQuery 的 ajax 送出請求
+		// 使用過去常用的 JQuery 的 ajax 送出請求
 
 		// $.ajax({
 		// 	url: 'https://jsonplaceholder.typicode.com/todos/1',
@@ -57,16 +57,12 @@
 		// 	// async: false, // 使用 async 將 ajax 請求改為同步
 		// 	success: function (status) {
 		// 		data = status
+		// 		console.log(data);
 		// 	}
 		// })
 
 		// //data為statue
 		// console.log(data)
-
-
-
-
-
 
 		// // 以下僅供概念參考
 		// var data = ajax("http://test.url.1")
@@ -122,9 +118,6 @@
 		// 	handler()
 		// } else
 
-
-
-
 		// 實作一個 Promise 吧！
 
 		// const promise1 = new Promise((resolve, reject) => {
@@ -143,10 +136,12 @@
 
 		// const newPromise = new Promise((resolve, reject) => {
 		// 	setTimeout(() => {
-		// 		if (Math.random() > 0.5) {
+		// 		let randomNumber = Math.random()
+		// 		console.log(randomNumber);
+
+		// 		if (randomNumber > 0.5) {
 		// 			resolve('changed')
-		// 		}
-		// 		else {
+		// 		} else {
 		// 			reject('error')
 		// 		}
 		// 	}, 3000)
@@ -158,7 +153,6 @@
 
 		// new Promise((resolve, reject) => {
 		// 	console.log('Initial')
-
 		// 	resolve();
 		// })
 		// 	.then(() => {
@@ -175,15 +169,17 @@
 
 		// Promise.all
 
-		// var p1 = Promise.resolve(3);
-		// var p2 = 1337;
-		// var p3 = new Promise((resolve, reject) => {
-		// 	setTimeout(resolve, 2000, 'foo');
-		// });
+		var p1 = Promise.resolve(3)
+		var p2 = 1337
+		var p3 = new Promise((resolve, reject) => {
+			setTimeout(resolve, 2000, 'foo')
+		})
 
-		// Promise.all([p1, p2, p3]).then(values => {
-		// 	console.log(values); // [3, 1337, "foo"]
-		// });
+		Promise.all([p1, p2, p3])
+			.then(values => {
+				console.log(values); // [3, 1337, "foo"]
+			})
+
 	</script>
 </body>
 

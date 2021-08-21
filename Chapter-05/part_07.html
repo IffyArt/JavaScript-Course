@@ -8,12 +8,86 @@
 	<meta name="viewport"
 				content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.loading {
+		position: fixed;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		background-color: black;
+
+		perspective: 130px;
+	}
+
+	.loading .coin {
+		width: 3rem;
+		height: 3rem;
+		border: 4px solid teal;
+		border-radius: 50%;
+		animation: spin 2s ease-in-out infinite;
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotateY(540deg);
+		}
+	}
+</style>
+
 <body>
-	<a href="https://github.com/public-apis/public-apis">網路上的公開 API 串接</a>
-	<a href="https://data.gov.tw/">台灣 Open Data 平台</a>
-	<a href=" https://data.taipei/#/">台北 Open Data 平台</a>
+
+	<article class="loading">
+		<section class="coin"></section>
+	</article>
+
+	<article class="person">
+		<section class="person__info">
+			<span id="name">姓名：</span>
+			<span id="location">地址：</span>
+			<span id="email">電子信箱：</span>
+			<span id="phone">電話號碼：</span>
+		</section>
+		<section class="person__img">
+			<img alt="avatar">
+		</section>
+	</article>
+
+	<script>
+
+		axios.get('https://randomuser.me/api/')
+			.then(function (response) {
+				let personName = document.getElementById('name')
+				let personLocation = document.getElementById('location')
+				let personEmail = document.getElementById('email')
+				let personPhone = document.getElementById('phone')
+				let personImg = document.querySelector('img')
+
+				const { name, location, email, phone, picture } = response.data.results[0]
+
+				personName.append(name.title + '.' + name.first + ' ' + name.last)
+				personLocation.append(location.city + ' ' + location.street.number + ' ' + location.street.name)
+				personEmail.append(email)
+				personPhone.append(phone)
+				personImg.src = picture.large
+
+				imgData = [
+					{ image: 'name', imageUrl: 'url' },
+					{ image: 'name', imageUrl: 'url' }
+				]
+
+				document.querySelector('.loading').style.display = 'none'
+			})
+	</script>
 </body>
 
 </html>
